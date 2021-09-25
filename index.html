@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychosis Tracker - To Be Renamed</title>
+
+    <link rel= "stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="calendarContainer">
+        <div id="header">
+            <div id='monthAndYear'></div>
+            <div>
+                <button id='lastMonth'>Last</button>
+                <button id='nextMonth'>Next</button>
+            </div>
+        </div>
+
+        <div id="weekdays">
+            <div>Sunday</div>
+            <div>Monday</div>
+            <div>Tuesday</div>
+            <div>Wednesday</div>
+            <div>Thursday</div>
+            <div>Friday</div>
+            <div>Saturday</div>
+        </div>
+        
+        <div id="calendar"></div>
+    </div>
+
+    <div id='logContainer'>
+        <div id='header'>
+            <div id='logNotes'></div>
+            <div>
+                <button id='addButton'>+</button>
+            </div>
+        </div>
+        <div id='logContents' name='logContents' style="overflow-y:scroll;">
+            <!-- THE EXPERIENCE TYPE, HALLUCINATION OR DELUSION -->
+            <p id='logSection'>I experienced a: </p>
+            <div class='experienceTypeContainer'>
+                <input type='radio' id='hallucination' name='experienceType' checked='checked'/>
+                <label for='hallucination'>hallucination.</label>
+            </div>
+            <div class='experienceTypeContainer'>
+                <input type='radio' id='delusion' name='experienceType'/>
+                <label for='delusion'>delusion.</label> 
+            </div>
+
+            <!-- WHAT TEXT BOXES FOR SENSES THE USER WANTS TO USE -->
+            <p id='logSection'>I could: </p>
+            <div class='senseType'>
+                <input id='see' name='see' type='checkbox' onclick='openSense(0)'/>
+                <label for='see'>see it.</label>
+            </div>
+            <div class='senseType'>
+                <input id='hear' name='hear' type='checkbox' onclick='openSense(1)'/>
+                <label for='hear'>hear it.</label>
+            </div>
+            <div class='senseType'>
+                <input id='feel' name='feel' type='checkbox' onclick='openSense(2)'/>
+                <label for='feel'>feel it.</label>
+            </div>
+            <div class='senseType'>
+                <input id='smell' name='smell' type='checkbox' onclick='openSense(3)'/>
+                <label for='smell'>smell it.</label>
+            </div>
+            <div class='senseType'>
+                <input id='taste' name='taste' type='checkbox' onclick='openSense(4)'/>
+                <label for='taste'>taste it.</label>
+            </div>
+
+            <!-- INPUT FOR WHAT THE USER SENSED -->
+            <p id='senseInput0' name='logSection'></p>
+            <div class='senseInput'>
+                <textarea rows="5" cols="50" id="input0"></textarea>
+            </div>
+            <p id='senseInput1' name='logSection'></p>
+            <div class='senseInput'>
+                <textarea rows="5" cols="50" id="input1"></textarea>
+            </div>
+            <p id='senseInput2' name='logSection'></p>
+            <div class='senseInput'>
+                <textarea rows="5" cols="50" id="input2"></textarea>
+            </div>
+            <p id='senseInput3' name='logSection'></p>
+            <div class='senseInput'>
+                <textarea rows="5" cols="50" id="input3"></textarea>
+            </div>
+            <p id='senseInput4' name='logSection'></p>
+            <div class='senseInput'>
+                <textarea rows="5" cols="50" id="input4"></textarea>
+            </div>
+
+            <!-- TAGS FOR THINGS LIKE BUGS AND SHADOWS AND WHATNOT -->
+            <p id='logSection'>Tags: </p>
+            <div id='tags'>
+                <input id='addTag' name='addTag' type='checkbox' onclick='openTag()'/>
+                <label for='addTag' id='plus'>+</label>
+                <!-- tags are created dynamically and added here -->
+            </div>
+
+            <!-- SAVE AND CLEAR BUTTONS -->
+            <button id='saveLogButton'>Save</button>
+            <button id='clearLogButton'>Clear</button>
+        </div>
+    </div>
+
+    <div id='newTagModal'>
+        <h2>New Tag</h2>
+
+        <input id='tagTitleInput' placeholder='New Tag'/>
+
+        <button id='saveButton'>Save</button>
+        <button id='cancelButton'>Cancel</button>
+    </div>
+
+    <div id='editLogModal'>
+        <h2>Tag</h2>
+        <p id='tagText'></p>
+        <button id='editButton'>Edit</button>
+        <button id='deleteButton'>Delete</button>
+        <button id='closeButton'>Close</button>
+    </div>
+
+    <div id="modalBackDrop"></div>
+    
+    <script src="./script.js"></script>
+</body>
+</html>
